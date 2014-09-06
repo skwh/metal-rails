@@ -1,0 +1,1 @@
+MetalRails::Application.config.secret_key_base = '130f5fb996aff607a26944c90803603d3cb8c783ed38ddf5c93c56c026df5cb9ac2eb46f518c0cac7f055f65f5bd601cacd7758ad0572d5d03c7f600bb028f4f'

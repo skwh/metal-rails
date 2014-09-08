@@ -5,3 +5,20 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+pages = Page.create(
+	[
+		{
+			title:"Welcome to Metalithic Ironworks LLC",
+			page_name:"index"
+		},
+		{
+			title:"About Metalithic Ironworks LLC",
+			page_name:"about"
+		},
+		{
+			title:"Contact Us",
+			page_name:"contact"
+		}
+	]
+)
+puts("seeded pages")

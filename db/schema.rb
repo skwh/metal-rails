@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909010656) do
+ActiveRecord::Schema.define(version: 20140909032133) do
 
   create_table "pages", force: true do |t|
     t.string   "title"
-    t.text     "input_text"
-    t.text     "rendered_text"
+    t.text     "input_text",    default: ""
+    t.text     "rendered_text", default: ""
     t.string   "page_name"
     t.datetime "created_at"
     t.datetime "updated_at"

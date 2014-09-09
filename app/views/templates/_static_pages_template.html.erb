@@ -2,7 +2,10 @@
 	<h2><%= data.title %></h2>
 </div>
 <div class="content_body">
-	<%= data.rendered_text %>
+	<%= data.rendered_text.html_safe %>
+	<% if logged_in? %>
+		<p><%= link_to "Edit this page", edit_url(page: data.page_name) %></p>
+	<% end %>
 </div>
 <div class="photo_body">
 	<h2>Photos will go here.</h2>

@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   get '/about' => 'static_pages#about'
   get '/contact' => 'static_pages#contact'
 
+  get '/:page' => 'static_pages#page', as: :page
+
+  get '/:page/edit' => 'static_pages#edit', as: :edit
+  patch '/:id' => 'static_pages#update'
+
   get '/login' => 'static_pages#login', as: :login_path
   
   post '/login' => 'static_pages#verify'

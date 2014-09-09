@@ -1,0 +1,11 @@
+<div class="content_header">
+	<h2>Editing <%= @data.page_name.capitalize %></h2>
+</div>
+<div class="content_body">
+	<%= form_for(@data) do |f| %>
+		<p><%= f.label :title %>: <%= f.text_field :title %></p>
+		<p><%= f.label :input_text, "Page Content" %></p>
+		<p><%= f.text_area :input_text, size: "75x12" %></p>
+		<p><%= f.submit "Save" %></p>
+	<% end %>
+</div>

@@ -1,0 +1,11 @@
+<div class="content_header">
+	<h2>Log In</h2>
+</div>
+<div class="content_body">
+	<form method="post" action="/login">
+		<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+		<p>Password: <input type="password" id="pw" name="password" /></p>
+		<br />
+		<input type="submit" value="Submit">
+	</form>
+</div>

@@ -11,13 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908064145) do
+ActiveRecord::Schema.define(version: 20140909010656) do
 
   create_table "pages", force: true do |t|
     t.string   "title"
     t.text     "input_text"
     t.text     "rendered_text"
     t.string   "page_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "passwords", force: true do |t|
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

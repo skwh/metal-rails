@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   get '/about' => 'static_pages#about'
   get '/contact' => 'static_pages#contact'
 
+  get '/login' => 'static_pages#login', as: :login_path
+  
+  post '/login' => 'static_pages#verify'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

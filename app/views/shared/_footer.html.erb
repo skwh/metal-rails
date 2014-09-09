@@ -1,6 +1,10 @@
 <div id="footer">
 	<h4>&copy; Metalithic Ironworks <%= Time.new.year %> | 6340 W. 56th Avenue unit 8
 		 Arvada CO 80002 | 720-624-9341 | Monday-Friday 7am - 4pm
-		<span>L</span>
+		<% if logged_in? %>
+			<span>LI</span>
+		<% else %>
+			<span><%= link_to "L", login_path %></span>
+		<% end %>
 	</h4>
 </div>

@@ -25,7 +25,7 @@ class StaticPagesController < ApplicationController
 		if params[:page] == "index"
 			redirect_to root_path
 		else
-			redirect_to "/#{params[:page]}"
+			locals data: Page.find_by_page_name(params[:page])
 		end
 	end
 

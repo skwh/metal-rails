@@ -6,13 +6,9 @@
 	</div>
 	<div id="navbar">
 		<ul>
-			<li><%= link_to "Home", root_path %></li>
-			<li><%= link_to "About", about_path %></li>
-			<li><%= link_to "Contact Us", contact_path %></li>
-			<li><%= link_to "Residential", "/residential" %></li>
-			<li><%= link_to "Commercial", "/commercial" %></li>
-			<li><%= link_to "Restaurants", '/restaurants' %></li>
-			<li><%= link_to "Contractors", '/contractors' %></li>
+			<% @pages.each do |i| %>
+				<li><%= link_to i.page_name.capitalize, "/#{i.page_name}" %></li>
+			<% end %>
 		</ul>
 	</div>
 </div>

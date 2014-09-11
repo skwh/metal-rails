@@ -5,8 +5,8 @@ class StaticPagesController < ApplicationController
 	def login
 	end
 
-	def index
-		locals data: Page.find_by_page_name("index")
+	def home
+		locals data: Page.find_by_page_name("home")
 	end
 
 	def about
@@ -22,7 +22,7 @@ class StaticPagesController < ApplicationController
 	end
 
 	def page
-		if params[:page] == "index"
+		if params[:page] == "home"
 			redirect_to root_path
 		else
 			locals data: Page.find_by_page_name(params[:page])

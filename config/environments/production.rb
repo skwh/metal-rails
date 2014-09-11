@@ -1,4 +1,4 @@
-Rails.application.configure do
+MetalRails::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -30,7 +30,7 @@ Rails.application.configure do
   config.assets.compile = false
 
   # Generate digests for assets URLs.
-  config.assets.digest = true
+  config.assets.digest = false
 
   # `config.assets.precompile` has moved to config/initializers/assets.rb
 

@@ -7,14 +7,14 @@ Rails.application.routes.draw do
   
   root 'static_pages#home'
 
+  get '/login' => 'static_pages#login', as: :login_path
+  
+  post '/login' => 'static_pages#verify'
+
   get '/:page' => 'static_pages#page', as: :page
 
   get '/:page/edit' => 'static_pages#edit', as: :edit
   patch '/:id' => 'static_pages#update'
-
-  get '/login' => 'static_pages#login', as: :login_path
-  
-  post '/login' => 'static_pages#verify'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

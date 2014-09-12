@@ -1,3 +1,4 @@
+<% provide(:title, data.page_name.capitalize) %>
 <div class="content_header">
 	<h2><%= data.title %></h2>
 </div>
@@ -8,6 +9,12 @@
 	<% end %>
 </div>
 <div class="photo_body">
-	<h2>Photos will go here.</h2>
+	<% if !data.images.empty? %>
+		<div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 600px; height: 300px;">
+		    <!-- Slides Container -->
+		    <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 600px; height: 300px;">
+		    </div>
+		</div>
+	<% end %>
 	<%= data.page_name %>
 </div>

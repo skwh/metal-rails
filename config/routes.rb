@@ -11,6 +11,12 @@ Rails.application.routes.draw do
   
   post '/login' => 'static_pages#verify'
 
+  get '/albums/:id' => 'album#album', as: :album
+  get '/albums/:id/edit' => 'album#edit'
+  get '/albums/:id/delete' => 'album#destroy'
+  patch '/albums/:id' => 'album#update'
+  post '/albums' => 'album#create'
+
   get '/:page' => 'static_pages#page', as: :page
 
   get '/:page/edit' => 'static_pages#edit', as: :edit

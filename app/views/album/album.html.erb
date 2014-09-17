@@ -1,0 +1,11 @@
+<% provide(:title, @album.title) %>
+<div class="content_header">
+	<h2><%= link_to page_id(@album.page_id).page_name.capitalize, page_path(page_id(@album.page_id)) %> - <%= @album.title %></h2>
+</div>
+<div class="content_body">
+	<ul>
+		<% @album.images.each do |i| %>
+			<li><%= image_tag(i.url) %><br /><%= i.subtitle %></li>
+		<% end %>
+	</ul>
+</div>

@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140911235555) do
+ActiveRecord::Schema.define(version: 20140917023328) do
+
+  create_table "albums", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "page_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "images", force: true do |t|
+    t.string   "url"
+    t.text     "subtitle"
+    t.integer  "album_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "pages", force: true do |t|
     t.string   "title"
@@ -20,7 +36,6 @@ ActiveRecord::Schema.define(version: 20140911235555) do
     t.string   "page_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "images",        default: ""
   end
 
   create_table "passwords", force: true do |t|

@@ -40,5 +40,37 @@ pages = Page.create(
 )
 puts("seeded pages")
 
+albums = Album.create(
+	[
+		{
+			title:"Porch",
+			description:"We made a thing for a porch.",
+			page_id:4
+		},
+		{
+			title:"Balcony",
+			description:"We made a thing for a balcony.",
+			page_id:6
+		}
+	]
+)
+puts("seeded albums")
+
+images = Image.create(
+	[
+		{
+			url:"http://img1.southernliving.timeinc.net/sites/default/files/image/2003/04/perfect-porch/porch-l.jpg",
+			subtitle:"This is a nice porch.",
+			album_id:1
+		},
+		{
+			url:"http://www.pikemanforge.ie/images/balcony.jpg",
+			subtitle:"This is a nice balcony.",
+			album_id:2
+		}
+	]
+)
+puts("seeded images")
+
 password = Password.create({password_digest:"5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8"})
 puts("seeded password")

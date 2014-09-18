@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
 	include StaticPagesHelper, ApplicationHelper
-	before_action :begin_verification, only: [ :edit ]
+	before_action :begin_verification, only: [ :edit, :update ]
 
 	def login
 	end

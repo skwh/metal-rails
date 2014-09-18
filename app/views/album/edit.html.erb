@@ -1,0 +1,22 @@
+<% provide(:title, "Editing Album #{@album.title}") %>
+<div class="content_header">
+	<h2>Editing Album <%= @album.title %></h2>
+</div>
+<div class="content_body">
+	<%= form_for(@album) do |f| %>
+		<p><%= f.label :title, "Album Title" %>: <%= f.text_field :title %></p>
+		<p><%= f.label :description, "Album Description:" %>
+		<p><%= f.text_area :description, size: "75x12" %></p>
+		<p><%= f.label :page_id, "Catergory:" %><%= f.select(:page_id, options_for_select(pages_to_catergories,@album.parent_page.id)) %></p>
+		<hr />
+		<h4>Images:</h4>
+		<ol>
+			<% @album.images.each do |image| %>
+				<%= f.fields_for image do |i| %>
+					<li><%= i.label :url %>:<%= i.text_field :url %> | <%= i.label :subtitle %>:<%= i.text_field :subtitle %></li>
+				<% end %>
+			<% end %>
+		</ol>
+		<p><%= f.submit "Save Changes" %> | <%= link_to "Delete this album", destroy_album_path(@album) %></p>
+	<% end %>
+</div>

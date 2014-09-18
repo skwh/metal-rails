@@ -1,5 +1,5 @@
 module AlbumHelper
-	def page_id(id)
-		Album.find_by_page_id(id)
+	def get_parent_page(page_id)
+		Page.find(page_id)
 	end
 end

@@ -1,4 +1,6 @@
 class AlbumController < ApplicationController
+	include StaticPagesHelper, ApplicationHelper
+	before_action :begin_verification, only: [ :edit, :update, :destroy, :new, :create]
 
 	def album
 		@album = Album.find_by_id(params[:id])
@@ -11,7 +13,7 @@ class AlbumController < ApplicationController
 	def update
 		@album = Album.find_by_id(params[:id])
 		if @album.update_attributes(album_params)
-			redirect_to "/#{@album.page.page_name}"
+			redirect_to album_path(@album)
 		else
 			render 'edit'
 		end
@@ -20,6 +22,8 @@ class AlbumController < ApplicationController
 	def destroy
 		@album = Album.find_by_id(params[:id])
 		@album.destroy
+		flash[:success] = "Album destroyed."
+		redirect_to "/"
 	end
 
 	def new
@@ -38,7 +42,7 @@ class AlbumController < ApplicationController
 
 	private
 		def album_params
-			params.require(:album).permit(:title, :description, :images_attribues => [:url, :subtitle])
+			params.require(:album).permit(:title, :description, :page_id, :images_attribues => [:url, :subtitle])
 		end
 
 end

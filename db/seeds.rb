@@ -65,7 +65,17 @@ images = Image.create(
 		},
 		{
 			url:"http://www.pikemanforge.ie/images/balcony.jpg",
+			subtitle:"This is a nice parch.",
+			album_id:1
+		},
+		{
+			url:"http://www.pikemanforge.ie/images/balcony.jpg",
 			subtitle:"This is a nice balcony.",
+			album_id:2
+		},
+		{
+			url:"http://img1.southernliving.timeinc.net/sites/default/files/image/2003/04/perfect-porch/porch-l.jpg",
+			subtitle:"This is a nice porch.",
 			album_id:2
 		}
 	]

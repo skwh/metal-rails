@@ -1,11 +1,28 @@
 <% provide(:title, @album.title) %>
 <div class="content_header">
-	<h2><%= link_to page_id(@album.page_id).page_name.capitalize, page_path(page_id(@album.page_id)) %> - <%= @album.title %></h2>
+	<h2><%= get_parent_page(@album.page_id).caps_name %> - <%= @album.title %></h2>
 </div>
 <div class="content_body">
-	<ul>
-		<% @album.images.each do |i| %>
-			<li><%= image_tag(i.url) %><br /><%= i.subtitle %></li>
-		<% end %>
-	</ul>
+	<% if logged_in? %>
+		<p style="text-align:center;"><%= link_to "Edit this album", edit_album_path(@album) %></p>
+	<% end %>
+	<div id="slider" style="text-align:center;margin:auto;width:600px;">
+		<div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 600px; height: 400px;">
+		    <!-- Slides Container -->
+		    <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 600px; height: 400px;">
+		        <% @album.images.each do |i| %>
+					<div><%= image_tag(i.url, {u:"image"}) %>
+						<div u="caption" t=<%= "#{i.id}" %> style="position: absolute; bottom: 0px; left: 0px;width: 600px; height: 50px;">
+							<div style="position: absolute; top: 0px; left: 0px; width: 600px; height: 50px;
+	                        background-color: Black; opacity: 0.5; filter: alpha(opacity=50);"></div>
+	                    	<div style="position: absolute; top: 0px; left: 0px; width: 600px; height: 50px;
+	                        color: White; font-size: 16px; font-weight: bold; line-height: 50px; text-align: center;">
+								<%= i.subtitle %>
+	                    	</div>
+						</div>
+					</div>
+				<% end %>
+		    </div>
+		</div>
+	</div>
 </div>

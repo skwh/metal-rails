@@ -4,17 +4,21 @@
 </div>
 <div class="content_body">
 	<%= data.rendered_text.html_safe %>
-	<% if logged_in? %>
-		<p><%= link_to "Edit this page", edit_url(page: data.page_name) %></p>
-	<% end %>
 </div>
 <div class="album_body">
 	<% if !data.albums.empty? %>
 		<% data.albums.each do |a| %>
 			<div class="album_listing">
-				<p><%= link_to a.title, album_path(a) %></p>
+				<p><%= link_to a.title, album_path(a) %><% if logged_in? %> - <%= link_to "Edit", edit_album_path(a) %> <% end %></p>
 			</div>
 		<% end %>
+	<% elsif logged_in? %>
+		<h4>This page has no albums.</h4>
 	<% end %>
-	<%= data.page_name %>
 </div>
+<% if logged_in? %>
+	<div class="logged_in_toolbar">
+		<p><%= link_to "Edit this page", edit_url(page: data.page_name) %> | <%= link_to "Add a photo album", create_album_path %></p>
+	</div>
+<% end %>
+	

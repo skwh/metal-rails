@@ -1,13 +1,13 @@
-<% provide(:title, "Editing #{@data.page_name.capitalize}") %>
+<% provide(:title, "Editing #{@data.caps_name}") %>
 <div class="content_header">
 	<h2>Editing <%= @data.page_name.capitalize %></h2>
 </div>
 <div class="content_body">
 	<%= form_for(@data) do |f| %>
-		<p><%= f.label :title %>: <%= f.text_field :title %></p>
-		<p><%= f.label :input_text, "Page Content" %></p>
+		<p><%= f.label :title, "Page Title" %>: <%= f.text_field :title %></p>
+		<p><%= f.label :input_text, "Page Content:" %><br />
+			The page's content can be stylized with <%= link_to "Markdown", "http://daringfireball.net/projects/markdown/syntax#block" %>.</p>
 		<p><%= f.text_area :input_text, size: "75x12" %></p>
-		<p><%= f.label :images %><%= f.text_field :images %></p>
-		<p><%= f.submit "Save" %></p>
+		<p><%= f.submit "Save Changes" %></p>
 	<% end %>
 </div>

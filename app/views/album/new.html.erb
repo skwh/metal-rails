@@ -1,0 +1,14 @@
+<% provide(:title, "Creating new Album") %>
+<div class="content_header">
+	<h2>Create a new photo Album</h2>
+</div>
+<div class="content_body">
+	<%= form_for(@album) do |f| %>
+		<p><%= f.label :title, "Album Title" %>: <%= f.text_field :title %></p>
+		<p><%= f.label :description, "Album Description:" %>
+		<p><%= f.text_area :description, size: "75x12" %></p>
+		<p>Catergory selector goes here</p>
+		<p>Picture adder goes here</p>
+		<p><%= f.submit "Save Album" %></p>
+	<% end %>
+</div>

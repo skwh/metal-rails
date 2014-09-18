@@ -31,5 +31,13 @@ module ApplicationHelper
     :autolink => true, :space_after_headers => true)
 		return markdown_obj.render(text)
 	end
+
+	def pages_to_catergories
+		cats = []
+		Page.all.each do |p|
+			cats.push([p.caps_name,p.id])
+		end
+		return cats
+	end
 	
 end

@@ -1,6 +1,6 @@
 <% provide(:title, data.page_name.capitalize) %>
 <div class="content_header">
-	<h2><%= data.title %></h2>
+	<h2 class="content_title"><%= data.title %></h2>
 </div>
 <div class="content_body">
 	<% if data.rendered_text.empty? and logged_in? %>
@@ -20,12 +20,12 @@
 				</div>
 			<% end %>
 		<% elsif logged_in? %>
-			<h4>This page has no albums. <%= link_to "Add a photo album", create_album_path %></h4>
+			<p>This page has no albums. <%= link_to "Add a photo album", create_album_path %></p>
 		<% end %>
 	</div>
 <% end %>
 <% if logged_in? %>
-	<div class="logged_in_toolbar">
+	<div id="logged_in_toolbar">
 		<p><%= link_to "Edit this page", edit_url(page: data.page_name) %></p>
 	</div>
 <% end %>

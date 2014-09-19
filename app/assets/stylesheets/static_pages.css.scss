@@ -1,17 +1,26 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$accent: #FF0000;
+$standard: #FFFFFF;
+
 .content_header {
 	margin:5px 0px;
 	h1,h2,h3,h4,h5 {
 		text-align: center;
 	}
+	.content_title {
+		color: $accent;
+		font-family: "Copperplate Gothic Bold", "Bitstream Charter" "Liberation Serif", serif;
+	}
 }
 .content_body, .album_body {
 	margin:5px;
 	padding:5px;
+	font-family: "Abyssinica SIL", "Droid Serif", "Norasi", serif;
 	p {
 		font-size:13pt;
+		margin:10px;
 	}
 }
 

@@ -1,9 +1,8 @@
 class Album < ActiveRecord::Base
-	include AlbumHelper
 	has_many :images
-	accepts_nested_attributes_for :images
+	accepts_nested_attributes_for :images, allow_destroy: true
 	
 	def parent_page
-		get_parent_page(page_id)
+		Page.find_by_id(page_id)
 	end
 end

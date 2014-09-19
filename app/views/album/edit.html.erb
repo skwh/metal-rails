@@ -11,10 +11,8 @@
 		<hr />
 		<h4>Images:</h4>
 		<ol>
-			<% @album.images.each do |image| %>
-				<%= f.fields_for image do |i| %>
-					<li><%= i.label :url %>:<%= i.text_field :url %> | <%= i.label :subtitle %>:<%= i.text_field :subtitle %></li>
-				<% end %>
+			<%= f.fields_for :images do |i| %>
+				<li><%= i.label :url %>:<%= i.text_field :url %> | <%= i.label :subtitle %>:<%= i.text_field :subtitle %></li>
 			<% end %>
 		</ol>
 		<p><%= f.submit "Save Changes" %> | <%= link_to "Delete this album", destroy_album_path(@album) %></p>

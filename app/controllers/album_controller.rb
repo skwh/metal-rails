@@ -28,6 +28,7 @@ class AlbumController < ApplicationController
 
 	def new
 		@album = Album.new
+		2.times { @album.images.build }
 	end
 
 	def create
@@ -42,7 +43,7 @@ class AlbumController < ApplicationController
 
 	private
 		def album_params
-			params.require(:album).permit(:title, :description, :page_id, images_attribues: [:url, :subtitle, :_destroy])
+			params.require(:album).permit(:title, :description, :page_id, images_attributes: [:id, :url, :subtitle, :_destroy])
 		end
 
 end

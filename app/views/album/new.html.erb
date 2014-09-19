@@ -7,8 +7,19 @@
 		<p><%= f.label :title, "Album Title" %>: <%= f.text_field :title %></p>
 		<p><%= f.label :description, "Album Description:" %>
 		<p><%= f.text_area :description, size: "75x12" %></p>
-		<p>Catergory selector goes here</p>
-		<p>Picture adder goes here</p>
+		<p><%= f.label :page_id, "Catergory:" %><%= f.select(:page_id, options_for_select(pages_to_catergories)) %></p>
+		<hr />
+		<h4>Images: <%= f.add_nested_fields_link :images %></h4>
+		<ol>
+			<%= f.nested_fields_for :images, wrapper_tag: :li do |i| %>
+				<div>
+					<p><%= i.label :url, "Image URL" %>: <%= i.text_field :url %> | <%= link_to "Upload Image", "#", {class:"uploadImage"} %><br />
+					<%= i.label :subtitle %>:<br /><%= i.text_area :subtitle, size:"40x5" %><br />
+					<%= i.remove_nested_fields_link 'Remove' %></p>
+				</div>
+			<% end %>
+		</ol>
+
 		<p><%= f.submit "Save Album" %></p>
 	<% end %>
 </div>

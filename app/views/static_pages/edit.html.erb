@@ -8,6 +8,7 @@
 		<p><%= f.label :input_text, "Page Content:" %><br />
 			The page's content can be stylized with <%= link_to "Markdown", "http://daringfireball.net/projects/markdown/syntax#block" %>.</p>
 		<p><%= f.text_area :input_text, size: "75x12" %></p>
+		<p><%= f.label :album_enabled, "Albums enabled?" %><%= f.check_box :album_enabled %></p>
 		<p><%= f.submit "Save Changes" %></p>
 	<% end %>
 </div>

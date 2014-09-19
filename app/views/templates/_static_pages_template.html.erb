@@ -3,22 +3,30 @@
 	<h2><%= data.title %></h2>
 </div>
 <div class="content_body">
-	<%= data.rendered_text.html_safe %>
-</div>
-<div class="album_body">
-	<% if !data.albums.empty? %>
-		<% data.albums.each do |a| %>
-			<div class="album_listing">
-				<p><%= link_to a.title, album_path(a) %><% if logged_in? %> - <%= link_to "Edit", edit_album_path(a) %> <% end %></p>
-			</div>
-		<% end %>
-	<% elsif logged_in? %>
-		<h4>This page has no albums.</h4>
+	<% if data.rendered_text.empty? and logged_in? %>
+		<p>This page has no content.</p>
+	<% else %>
+		<%= data.rendered_text.html_safe %>
 	<% end %>
 </div>
+<% if data.album_enabled? %>
+	<div class="album_body">
+		<% if !data.albums.empty? %>
+			<h3>Albums:</h3>
+			<% data.albums.each do |a| %>
+				<div class="album_listing">
+					<p><%= link_to image_tag(a.images.first.url, {width:225,height:225}), album_path(a) %><br />
+					<%= link_to a.title, album_path(a) %><% if logged_in? %> - <%= link_to "Edit", edit_album_path(a) %> <% end %></p>
+				</div>
+			<% end %>
+		<% elsif logged_in? %>
+			<h4>This page has no albums. <%= link_to "Add a photo album", create_album_path %></h4>
+		<% end %>
+	</div>
+<% end %>
 <% if logged_in? %>
 	<div class="logged_in_toolbar">
-		<p><%= link_to "Edit this page", edit_url(page: data.page_name) %> | <%= link_to "Add a photo album", create_album_path %></p>
+		<p><%= link_to "Edit this page", edit_url(page: data.page_name) %></p>
 	</div>
 <% end %>
 	

@@ -41,6 +41,6 @@ class StaticPagesController < ApplicationController
 
 	private
 		def page_params
-			params.require(:page).permit(:title, :input_text, :rendered_text, :images)
+			params.require(:page).permit(:title, :input_text, :rendered_text, :images, :album_enabled)
 		end
 end

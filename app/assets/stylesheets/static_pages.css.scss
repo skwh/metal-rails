@@ -7,9 +7,18 @@
 		text-align: center;
 	}
 }
-.content_body {
+.content_body, .album_body {
 	margin:5px;
 	padding:5px;
+	p {
+		font-size:13pt;
+	}
+}
+
+.album_listing {
+	margin:20px;
+	padding:5px;
+	display:inline-block;
 	p {
 		font-size:13pt;
 	}

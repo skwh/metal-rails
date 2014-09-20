@@ -126,3 +126,8 @@ span.flash {
 	text-align: right;
 	float:right;
 }
+
+.field_with_errors {
+	color:$accent;
+	display:inline-block;
+}

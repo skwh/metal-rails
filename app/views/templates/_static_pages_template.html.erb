@@ -12,7 +12,7 @@
 <% if data.album_enabled? %>
 	<div class="album_body">
 		<% if !data.albums.empty? %>
-			<h3>Albums:</h3>
+			<h3>Albums: <% if logged_in? %><%= link_to "Add a photo album", create_album_path %><% end %></h3>
 			<% data.albums.each do |a| %>
 				<div class="album_listing">
 					<p><%= link_to image_tag(a.images.first.url, {width:225,height:225}), album_path(a) %><br />

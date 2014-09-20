@@ -13,7 +13,11 @@
 		<ol>
 			<%= f.nested_fields_for :images, wrapper_tag: :li do |i| %>
 				<div>
-					<p><%= i.label :url, "Image URL" %>: <%= i.text_field :url %> | <%= link_to "Upload Image", "#", {id:"uploadImage#{(i.object.id.to_i-1)}",class:"uploadImage"} %> <input type="file" class="uploadImageInput" accept="image/*" style="display: none;" /><br />
+					<p><%= i.label :url, "Image URL" %>: <%= i.text_field :url %>
+					 | 
+					 <%= link_to "Upload Image", "#", { id:"#{(i.object.id.to_i-1)}", class:"uploadImage"} %> 
+					 <%= file_field_tag 'image', accept: 'image/*', id:"file_#{(i.object.id.to_i-1)}", class:"uploadImageInput", style: "display:none" %>
+					 <br />
 					<%= i.label :subtitle %>:<br /><%= i.text_area :subtitle, size:"40x5" %><br />
 					<%= i.remove_nested_fields_link 'Remove' %></p>
 				</div>

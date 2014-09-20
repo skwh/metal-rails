@@ -8,23 +8,25 @@ ready = function() {
     var select_id = -1;
 
     $('.uploadImage').click(function(e) {
+        /*
+            when an upload image link is clicked, find the section that it is in. 
+            label the url field. un hide the file selector button. add the change listener.
+        */
         e.stopPropagation();
         e.preventDefault();
-        var this_id = $(this).attr("id")
-        select_id = parseInt(this_id.replace( /[^\d.]/g, '' ),10);
-        console.log(select_id);
-        $('input#album_images_attributes_'+select_id+'_url').addClass("activeImageInputUrlField_" + select_id);
-        $(this).next().show().attr("id","activeImageInput_"+select_id).on('change', handle_image_selection);
+        //find the link's id.
+        var section_id = parseInt($(this).attr("id"),10);
+        console.log(section_id);
+        //label the url field.
+        $('input#album_images_attributes_'+section_id+'_url').addClass("activeImageInputUrlField_" + section_id);
+        //find the selctor button, unhide it, and add the change listner.
+        $('input#file_'+section_id).show().on('change',handle_image_selection);
+        select_id = section_id;
     });
 
 	function prepare_image_sliders() {
-		//define random caption transitions, if a caption specifies '*' as transition,
-        //it will choose transition randomly every time from following transition array
-        //var _CaptionTransitions = [{code1}, {code2} ...];
-        //use following line instead if there is no caption plays random transition
         var _CaptionTransitions = [];
         
-        //define named transitions for caption that plays specified transition
         _CaptionTransitions["1"] = {$Duration:900,$FlyDirection:8,$Easing:{$Top:$JssorEasing$.$EaseInOutSine},$ScaleVertical:0.6,$Opacity:2};
         var options = {
             $CaptionSliderOptions: {
@@ -38,6 +40,7 @@ ready = function() {
 	}
 
     function handle_image_selection(e) {
+        alert("working...");
         files = e.target.files;
         filereader.onload = function(event) {
             var event_result = event.target.result;
@@ -64,15 +67,19 @@ ready = function() {
     }
 
     function handle_success_upload(msg) {
-        console.log(msg.data.link);
-        console.log(select_id);
-        $('.activeImageInputUrlField_'+select_id).val(msg.data.link);
-        $('input#activeImageInput_'+select_id).val("").hide();
+        /*
+            handle a successful upload. find the url field. place the link. hide the file select input. reset the select id field.
+        */
+        var link = msg.data.link;
+        $('.activeImageInputUrlField_'+select_id).val(link);
+        $('input#file_'+select_id).val("").hide();
         select_id = -1;
         alert("Uploaded!")
     }
 
-	prepare_image_sliders();
+    if ($('#slider1_container').length != 0) {
+        prepare_image_sliders();
+    }
 
 }
 

@@ -7,7 +7,7 @@
 		<p><%= f.label :title, "Album Title" %>: <%= f.text_field :title %></p>
 		<p><%= f.label :description, "Album Description:" %>
 		<p><%= f.text_area :description, size: "75x12" %></p>
-		<p><%= f.label :page_id, "Catergory:" %><%= f.select(:page_id, options_for_select(pages_to_catergories)) %></p>
+		<p><%= f.label :page_id, "Category:" %><%= f.select(:page_id, options_for_select(pages_to_catergories)) %></p>
 		<hr />
 		<h4>Images: <%= f.add_nested_fields_link :images %></h4>
 		<ol>

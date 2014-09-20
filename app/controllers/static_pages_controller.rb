@@ -33,8 +33,10 @@ class StaticPagesController < ApplicationController
 		@page = Page.find(params[:id])
 		@page.rendered_text = markdown(params[:page][:input_text])
 		if @page.update_attributes(page_params)
+			flash[:success] = "Page updated."
 			redirect_to "/#{@page.page_name}"
 		else
+			flash[:error] = "There was a problem."
 			render 'edit'
 		end
 	end

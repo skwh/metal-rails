@@ -23,7 +23,9 @@
 		    </div>
 		</div>
 	</div>
-	<% if logged_in? %>
-		<p style="text-align:center;"><%= link_to "Edit this album", edit_album_path(@album) %></p>
-	<% end %>
 </div>
+<% if logged_in? %>
+	<div id="logged_in_toolbar">
+		<p><%= link_to "Edit this album", edit_album_path(@album) %><span class="flash"><% flash.each do |n, m| %><%= content_tag :span, m, class:n %><% end %></span></p>
+	</div>
+<% end %>

@@ -13,8 +13,10 @@ class AlbumController < ApplicationController
 	def update
 		@album = Album.find_by_id(params[:id])
 		if @album.update_attributes(album_params)
+			flash[:success] = "Album updated."
 			redirect_to album_path(@album)
 		else
+			flash[:error] = "There was a problem."
 			render 'edit'
 		end
 	end
@@ -37,6 +39,7 @@ class AlbumController < ApplicationController
 			flash[:success] = "Album Created."
 			redirect_to album_path(@album)
 		else
+			flash[:error] = "There was a problem."
 			render "new"
 		end
 	end

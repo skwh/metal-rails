@@ -26,7 +26,7 @@
 <% end %>
 <% if logged_in? %>
 	<div id="logged_in_toolbar">
-		<p><%= link_to "Edit this page", edit_url(page: data.page_name) %></p>
+		<p><%= link_to "Edit this page", edit_url(page: data.page_name) %><span class="flash"><% flash.each do |n, m| %><%= content_tag :span, m, class:n %><% end %></span></p>
 	</div>
 <% end %>
 	

@@ -43,7 +43,7 @@ a:visited {
 }
 
 p, span {
-	color: $standard
+	color: $standard;
 }
 
 #main_wrapper {
@@ -120,4 +120,9 @@ p, span {
 		margin:0px 5px;
 		color:$accent;
 	}
+}
+
+span.flash {
+	text-align: right;
+	float:right;
 }
